@@ -1,0 +1,612 @@
+\documentclass{article}
+\usepackage[a4paper, margin=0.5in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{mathtools}
+\usepackage{tabto}
+\usepackage{fontspec}
+\date{}
+\author{hacker}
+\newfontfamily{\code}{Source Code Pro}
+\begin{document}
+	\title{Constants, Variables and Datatypes}
+	\maketitle
+	
+	\newpage
+	
+	\section{Charecter Set}
+	The Charecter Set in C is grouped into following categories : \\
+	$ \bullet $ Letters (a to z and A to Z) \\
+	$ \bullet $ Digits (0 to 9) \\
+	$ \bullet $ Special Charecters (\#, ( ), \{ \}) \\
+	$ \bullet $ White Spaces (Tab, Spacebar)
+	
+	\section{Trigraph}
+	Each trigraph sequence consist of three charecters ('??' followed by the another chrecter) \\
+	$ \bullet $ ??= $\rightarrow$ \# \\
+	$ \bullet $ ??( $\rightarrow ~ $  [ \\
+	$ \bullet $ ??) $\rightarrow ~ $  ] \\
+	$ \bullet $ ??> $\rightarrow$ \} \\
+	$ \bullet $ ??< $\rightarrow$ \{
+	
+	\section{C tokens}
+	The smallest individual units are known as C tokens. \\
+	C has six types of tokens :
+	
+	\tikzstyle{box} = [rectangle,text centered, draw=black]
+	\tikzstyle{arrow} = [thick, ->, =stealth]
+	
+	\begin{tikzpicture}[node distance=2cm]
+		\node[box] (1) {C tokens};
+		\node[below of=1] (2) {};
+		\node[box, left of=2, align=center] (3) {Constants \\ 3.14 \\ -5.6};
+		\node[box, right of=2, align=center] (4) {Strings \\ zcat \\ FBI};
+		
+		\node[box, right of=4, xshift=1cm, align=center] (5) {Operators \\ / * + -};
+		\node [box, right of=5, xshift=1cm,align=center, align=center] (6) {Special Symbols \\ \{\} \# []};
+		
+		\node[box, left of=3, xshift=-1cm, align=center] (7) {Keywords \\ for \\ while \\ float};
+		\node[box, left of=7, xshift=-1cm, align=center] (8) {Identifiers \\ main \\ amount};
+		
+		\draw [arrow] (1) -| (5);
+		\draw [arrow] (1) -| (6);
+		\draw [arrow] (1) -| (3);
+		\draw [arrow] (1) -| (4);
+		\draw [arrow] (1) -| (8);
+		\draw [arrow] (1) -| (7);
+	\end{tikzpicture}
+	
+	\subsection{Constants}
+	Constants in C refer to fixed values that do not change during execution of program. 
+	\\ \\ 
+	C supports following types of constansts : \\
+	
+	\begin{tikzpicture}[node distance=1.5cm]
+		\node[box] (1) {Constants};
+		\node[below of= 1] (2) {};
+		
+		\node[box, xshift=-1cm ,left of=2, align=center] (3) {Numeric Constants \\ Integer constansts \\ Real constants};
+		
+		\node[box, xshift=1cm, right of=2, align=center] (4) {Characteristic Constants \\ Single Character constants \\ String constants};
+		
+		\draw [arrow] (1) -| (3);
+		\draw [arrow] (1) -| (4);
+	\end{tikzpicture}
+	
+	\subsubsection{Integer constants}
+	An integer constant consist of a sequence of digits. 
+	\\ \\
+	There are 3 types of integers : \\
+	$ \bullet $ decimal integer \\
+	$ \bullet $ Octal integer \\
+	$ \bullet $ Hexadecimal Integer
+	\\ \\
+	\textbf{3.1.1.1 Decimal integer} \\
+	It consist of numbers from 0 to 9, proceed by an optional + or - sign.
+	\\ \\
+	\textbf{Example} \\
+	123, -321, 0, 654321, +78 
+	\\ \\
+	\textbf{3.1.1.2 Octal Integer} \\
+	An Octal Integer constant consist of any combination of digits fro, 0 to 7, with leading 0.
+	\\ \\
+	\textbf{Example} \\
+	037, 0 0435, 0551
+	\\ \\
+	\textbf{3.1.1.3 Hexadecimal Integer} \\
+	A sequence of digits from which will have 0x or 0X is considered as hexamdecimal integer they may also include alphabets A to F or a to f. The letters a to f represents number 10 to 15.
+	\\ \\
+	\textbf{Example} \\
+	0x2, 0x9f, 0XBCD, 0XF08
+	\\ \\
+	\textbf{3.1.1.4 Unassigned Integer} \\
+	It is possible to store large number constants on these machines by appending qualifiers such as U, L and UL to the constants
+	\\ \\
+	\textbf{Examples} \\
+	56789U, 987612347UL, 9876543l
+	
+	\subsubsection{Real constansts}
+	Real numbers are constants containing fractional parts like 17.548 (or floating point) 
+	\\ \\
+	\textbf{Example} \\
+	0.0083, -0.75, 435.36, +247.0
+	\\ \\
+	Real number may also be expressed interms exponential notation.
+	\\ \\
+	\textbf{Example} \\
+	215.65 can be written as 21565e2 in exponential notation \\
+	where e is known as mantisa
+	\\ \\
+	\textbf{Genaral form} \\
+	mantisa e exponent
+	\\ \\
+	where, mantisa is either a real number expressed in decimal notation or an integer. \\
+	exponent is an integer with an optional + or - sign. The letter '\textit{e}' sepatrating the mantisa can be written in lower or upper case.
+	\\ \\
+	\textbf{Example} \\
+	0.654e4, 12e-2, 1.5e+5, 3018E3, -1.2E-1
+	
+	\newpage
+	
+	\section{Strings}
+	
+	\subsubsection{Single Chracter Constanst}
+	It containes a single character with in a pair of single quote marks and character constants have integer values knowm as ASCII values.
+	\\ \\
+	\textbf{Example} \\
+	'5', 'x', '.', ''
+	
+	\subsubsection{String Constants}
+	A string constants are groups of characters enclosed in double quotes. \\
+	The characters may be letters, numbers, special characters and blank space
+	\\ \\
+	\textbf{Example}
+	"Hello", "1987", "Well done", "? ...", "5+3", "x"
+	\\ \\
+	Difference between single character constant and string constant \\
+	\begin{tabular}{|c|c|}
+		\hline
+		Single Character Constant & String Constants \\
+		\hline
+		$\bullet$ It consist of single character \hspace{1cm} & $ \bullet$ It consist of group of characters \\
+		
+		$\bullet$ It is enclosed in single quotes \hspace{0.85cm} & $\bullet$ It is enclosed in double quotes \hspace{0.145cm} \\
+
+		$\bullet$ Example : 'O', 'x', 'F' \hspace{1.945cm} & \hspace{0.095cm} $\bullet$ Example : "kill", "check", "chsh" \\
+		\hline
+	\end{tabular}
+	\\ \\
+	\textbf{Backlash Character Constant} \\
+	C support special backlash character constants that are used in output functions.
+	\\ \\
+	These character combination are known as \underline{escape sequences}
+	\\ \\
+	\begin{tabular}{|c|c|}
+		\hline
+		Constants & Escaple Sequence \\
+		\hline
+		\textbackslash a & audible bell \\
+		\textbackslash b & backspace \\
+		\textbackslash f & form feed \\
+		\textbackslash n & newline \\
+		\textbackslash r & carriage return \\
+		\textbackslash t & horizontal tab \\
+		\textbackslash v & verticle tab \\
+		\textbackslash ' & single quote \\
+		\textbackslash " & double quote \\
+		\textbackslash ? & question mark \\
+		\textbackslash\textbackslash & backslash \\
+		\textbackslash 0 & Null \\
+		\hline
+	\end{tabular}
+
+	\subsubsection{Keywords}
+	All keywords has fixed meanings and these cannot be changed. Keywords serve as basic building blocks of for program statements. All keywords must be written in lowercase.
+	\\ \\
+	\textbf{Example} \\
+	char, long, float, if, else
+	
+	\subsubsection{Identifiers}
+	They refer to the names of the variables, functions and arrays. These are user defined data-names and consist of letters \& digits.
+	\\ \\
+	\textbf{Rules for identifiers :} \\
+	$\bullet$ First charecter must be an alphabet or \_ (underscore) \\
+	$\bullet$ It must consist of only letters, digits and underscore \\
+	$\bullet$ Only first 31 charecter \\
+	$\bullet$ Cannot use a keyword \\
+	$\bullet$ Must not contain a whitespace \\
+	$\bullet$ Successive underscores are not valid \\
+	$\bullet$ Uppercase and lower case letters are significant
+	\\ \\
+	\textbf{Example} \\
+	mobile\_123, \_test
+	
+	\section{Variables}
+	A variable is a data name whose value goes on changing during the execution of a program. \\
+	A varibale may take different values during execution.
+	\\ \\
+	\textbf{Example} \\
+	avg, -avg, -test\_1
+	\\ \\
+	\textbf{Rules for naming the varible} \\
+	$\bullet$ They must be begin with a letter. Some systems may permit underscore as first character \\
+	$\bullet$ The first 31 charecters are valid, some compilers may consider first 8 charecters only \\
+	$\bullet$ Uppercase and lowercase are significant \\
+	$\bullet$ It should not be a keyword \\
+	$\bullet$ Whitespace is not allowed
+	
+	\newpage
+	
+	\section{Data types}
+	Data types may represent the type of data that the variable hold
+	
+	\subsection{ANSI C supports the 3 types of data types}
+	$\bullet$ Primary data types \\
+	$\bullet$ Derived data types \\
+	$\bullet$ User defined data types
+	
+	\subsection{Primary or Fundamental data types}
+	$\bullet$ integer \\
+	$\bullet$ floating point \\
+	$\bullet$ double precision \\
+	$\bullet$ void
+	
+	\subsection{Range of data types}
+	\begin{tabular}{|c|c|}
+		\hline
+		Data type & Range \\
+		\hline
+		int & -32,768 to 32,767 \\
+		float & 3.4e-38 to 3.4e38 \\
+		char & -128 to 127 \\
+		double & 1.7e-308 to 1.7e308 \\
+		\hline
+	\end{tabular}
+
+	\subsubsection{int data type}
+	It has a range between -32,768 to 32,767 for 16 bit machines and for 32 bit machine the range is from -2147,483,684 to 2,147,483,647.
+	\\ \\
+	\textbf{C has 3 types of integer storage} \\
+	$\bullet$ int \\
+	$\bullet$ short int \\
+	$\bullet$ long int
+	\\ \\
+	\textbf{Example} \\
+	int exec; exec=287;
+	
+	\subsubsection{floating point data type}
+	The keyword is float. The range is between 3.4e-38 to 3.4e38 for 16 bit machine.
+	\\ \\
+	\textbf{Example} \\
+	int n; n=298.87, n=0x98.22;
+	
+	\subsubsection{Double precision floating point data type}
+	The keyword is double. The range is between 1.7e-308 to 1.7e308 for 16 bit machine,. \\
+	The double data type is same as that of float but represent with greater precision.
+	
+	\subsubsection{Void data type}
+	The keyword is void. The Void data type has no values. It is used to specify a type of a function is said to be void, when it does not returnany value to the calling function.
+	
+	\subsubsection{Character data type}
+	The keyword is char. The range is between -128 to 127. Charecters are usually stored in 8 bits i.e one byte of internal storage.
+	
+	\newpage
+	
+	\section{Declaration of Variables}
+	\textbf{Declaration does 3 things} \\
+	$\bullet$ It tells the compiler what variable name is \\
+	$\bullet$ It specify what type of data variable it hold \\
+	$\bullet$ It allocates requiered amount of memory
+	
+	\subsection{Primary type declaration}
+	The syntax is "data\_type v1, v2, v3 $\dots$ vn" \\
+	where, \\
+	\tab \tab data\_type \hspace{1.525cm} $\longrightarrow$ type of data \\
+	\tab \tab v1, v2, v3 $\cdots$ vn" \hspace{0.394cm} $\longrightarrow$  name of the variables
+	\\ \\
+	$\bullet$ variables are separated by commas. \\
+	$\bullet$ A declaration statement should end with semicloln.
+	\\ \\ 
+	\textbf{Example} \\
+	int count; \\
+	char kill;
+	float 77.77;
+	
+	\subsection{User-defined Type declaration}
+	C supports a feature known as "type definition" that allows users to definean identifier that would define the variables.
+	\\ \\
+	\textbf{Genaral syntax} \\ 
+	\tab \tab typedef type identifier;
+	\\ \\
+	Where, type refers to an existing data type refers to new name given to the data type.
+	\\ \\
+	\textbf{Example} \\
+	typedef int units; \\
+	\tab \tab units ClassA, ClassB;
+	\\ \\
+	typedef float marks; \\
+	\tab \tab marks m1,m2;
+	
+	\subsubsection{Enumbered data type}
+	The identifier is a user defined enumarated data types, which can be used to declare variables that can be enclosed within the braces i.e enumarated constants
+	\\ \\
+	\textbf{Genaral syntax} \\
+	\tab \tab enum identifier \{value1, value2, value3, $\dots$ ,value\textit{n}\};
+	\\ \\
+	After this we can declare variables as \\
+	\tab \tab enum identifier v1,v2,v3, \dots vn;
+	\\ \\
+	The enumbered variables have one of the values of value1, value2, value3, $\dots$ ,value\textit{n}
+	
+	\newpage
+	
+	\subsubsection{Assignment statements}
+	Values can be assigned using,
+	\tab \tab vauable\_name=constant;
+	\\ \\
+	Where, \\
+	variable\_name $\rightarrow$ name of variable \\
+	constant $\rightarrow$ fixed value 
+	\\ \\
+	\textbf{Example}
+	max\_val=1; \\ min\_val=0;
+	\\ \\
+	It is possible to assign a value to a variable at the time of variable declaration.
+	\\ \\
+	\textbf{Genaral syntax} \\
+	data\_type variable\_name=constant;
+	\\ \\
+	\textbf{Example} \\ 
+	int final\_value=100; \\
+	char yes='x'; \\
+	double test=86.45;
+	\\ \\
+	\textbf{Initialization} \\
+	The process of giving initial values to variables.
+	\\ \\
+	\textbf{Example} \\
+	x=y=z; \\
+	pass=done='t'; \\
+	a=b=c=ALPHABET;
+	
+	\section{Reading data from keyboard}
+	Using scanf() function we can read the data from the keyboard.
+	\\ \\
+	\textbf{Genaral syntax} \\
+	scanf("control\_string", \&variable1, \&variable2, \dots , \&variablen); 
+	\\ \\
+	The control string containes the format of data being recived. \\
+	The \& symbol represent specify the variable name addres. 
+	\\ \\
+	\textbf{Example} \\
+	scanf("\%d", \&number); \\
+	scanf("\%d\%d",\&var1, \&var2); \\
+	scanf("\%d\%f",\&number, \&precise);
+	
+	\section{Defining symbolic constants}
+	\textbf{Genaral syntax} \\
+	\#define symbolic\_name value\_of\_constant
+	\\ \\
+	Where, \\
+	\tab \tab \#define $\rightarrow$ keyword \\
+	\tab \tab symbolic\_name $\rightarrow$ name of the variable \\
+	\tab \tab value\_of\_constant $\rightarrow$ fixed value
+	\\ \\
+	symbolic names are sometimes also called as constant identifiers 
+	\\ \\
+	\textbf{Example} \\
+	\#define health 100 \\
+	\#define PI 3.14 \\
+	\#define MAX 2000
+	
+	\subsection{Rules for naming symbolic constants}
+	$\bullet$ Symbolic names have some form of variable names. \\
+	$\bullet$ No blank space between the '\#' '\&' 'define' \\
+	$\bullet$ '\#' must be first character in the line \\
+	$\bullet$ A blank space is requiered between '\#define', symbolic\_name' \& 'constant' \\
+	$\bullet$ '\#define' statement must not end with semicolon \\
+	$\bullet$ symbolic\_names are not declared for data\_types \\
+	$\bullet$ It's data type depends on types of constants. \\
+	$\bullet$ '\#define' statements may be appear anywhere in the program, but before it is referenced in the program
+	\\ \\
+	\textbf{Program to describle welcome message} \\
+	{
+		\code
+		\#include<stdio.h> \\
+		main () \{
+		\tabto{0.5cm} printf("\textbackslash n\textbackslash nWelcome to C!");\\
+		\}
+	} \\ \\
+	\textbf{Program to find addition of two numbers} \\
+	{ \code
+		\#include<stdio.h> \\
+		int n1,n2,sum; \\
+		main () \{
+		\tabto{0.5cm} printf("\textbackslash nEnter two numbers :\textbackslash n>")\\
+		\}
+	}
+
+	\section{Operators and expressions}
+	\subsection{Introduction}
+	An operator is a symbol that  tells the computer to perform mathematical or logical manipulations. Operators are used in programs to manipulate data \& variables.
+	\\ \\
+	\textbf{Classification of C operators} \\
+	$\bullet$ Arithmetic operators \\
+	$\bullet$ Logical operators \\
+	$\bullet$ Assignment operator \\
+	$\bullet$ Increment and decrement operator \\
+	$\bullet$ Conditional operator \\
+	$\bullet$ Bitwise operator \\
+	$\bullet$ Special operator
+	
+	\subsection{Arithmetic operators}
+	\begin{tabular}{|c|c|}
+		\hline
+		operator & meaning \\
+		\hline
+		+ & Addition or unary plus \\
+		- & Minus or unary minus \\
+		* & Multiplication \\
+		/ & Division \\
+		\% & Modulo division \\
+		\hline
+	\end{tabular} \\ \\ \\
+	Integer division truncates any fractional part \\ 
+	The modulo division cannot be used for floating point
+	\\ \\
+	\textbf{Example} \\
+	a-b;, a*b;, a\%b;
+	
+	\newpage
+	
+	\subsubsection{Integer arithmetic}
+	Both the operands in a single arithmetic expression such as a+b are integers. \\
+	The above operation is called as Integer arithmetic operation. \\	
+	For modulo operations sign of the result is always the sign of the first operand i.e \\
+	-14\%3=-2 \\
+	-14\%-3=-2 \\
+	14\%-3=2
+	\\ \\
+	\textbf{Example} \\
+	int a,b; \\ a+b; a*b; a/b; \\ \\
+	suppose if a=14 \& b=4 then, \\ a+b=18 \\a-b=10 \\ a*b=14(4)=56 \\ a/b=14/4=3
+	\\ \\
+	$[$ Note $]$ : 6/7=0 and -6/-7=0 but -6/7 may be 0 or -1 depending on the machine.
+	
+	\subsubsection{Real arithmetic}
+	An arithmetic operation involving only real operatands is called Real Arithmetic. \\
+	A real operands assume values either in decimal or exponential notation.
+	\\ \\
+	\textbf{Example} \\
+	x=6.0/7.0=0.857143 \\ y=1.0/3.0=0.333333 \\ z=-2.0/3.0=0.666667
+	\\ \\
+	$[$ Note $]$ : The \% operand cannot be used with real operands.
+	
+	\subsubsection{Mixed mode arithmetic}
+	One of the operand is real and other is integer the expression is called Mixed mode arithmetic.
+	\\ \\
+	\textbf{Example} \\
+	15/10.0=1.5 \\ 15/10=1
+	
+	\subsubsection{Relational operators}
+	An expression containing a relation operator is called Relational expression.
+	\\ \\
+	\begin{tabular}{|c|c|}
+		\hline
+		operator & meaning \\
+		\hline
+		< & less than \\
+		> & greater than \\
+		<= & less than or equal to \\
+		>= & greater than or equal to \\
+		!= & not equal to \\
+		== & equal to \\
+		\hline
+	\end{tabular}
+	\\ \\ \\
+	Syntax for relational expression is \\
+	\tab \tab ae\_1 relational\_operator ae\_2
+	\\ \\
+	where, \\
+	\tab \tab ae\_1 and ae\_2 $\longrightarrow$ arithmetic expressions \\
+	which may be constant variable or combination of them.
+	\\ \\
+	Suppose a=25, b=35; then, \\
+	\begin{tabular}{cccc}
+		a>b & F & a<b & T \\
+		b>a & T & b<a & F \\
+		a>=b & T & a<=b & F \\
+		b>=a & T & b<=a & F \\
+		a==b & F & a!=b & T
+	\end{tabular}
+	
+	\subsubsection{Logical operators}
+	An expression which contains logical operators are known as logical expression or a compound relational expression,
+	\\ \\
+	\textbf{Classification of Logical C operators} \\
+	$\bullet$ Logical AND (\&\&) \\
+	$\bullet$ Logical OR (||)\\
+	$\bullet$ Logical NOT (!)
+	\\ \\
+	The logical operators \&\& \& and || are used when we want to test more than one conditions and make decision
+	\\ \\
+	\textbf{Example} \\
+	a<b || a>b \\
+	a==b \&\& a>=b
+	\\ \\
+	\textbf{Truth table} \\
+	Some example of usage of large expression are \\
+	if(age>55 \&\& salary<1000) \\
+	if(number<0 || number>0)
+	\\ \\
+	\textbf{Logical AND}\\
+	operend1 \&\& operend2 = operation
+	\\ \\
+	\begin{tabular}{|c|c|c|}
+		\hline
+		operend1 & operend2 & operation\\
+		\hline
+		True & True & True \\
+		True & False & False \\
+		False & True & False \\
+		False & False & False \\
+		\hline
+	\end{tabular}
+	\\ \\
+	\textbf{Logical OR}\\
+	operend1 || operend2 = operation
+	\\ \\
+	\begin{tabular}{|c|c|c|}
+		\hline
+		operend1 & operend2 & operation\\
+		\hline
+		True & True & True \\
+		True & False & True \\
+		False & True & True \\
+		False & False & False \\
+		\hline
+	\end{tabular}
+	\\ \\
+	\textbf{Logical NOT} \\
+	operand ! = operation
+	\\ \\
+	\begin{tabular}{|c|c|}
+		\hline
+		opernad & operation \\
+		\hline
+		True & False \\
+		False & True \\
+		\hline
+	\end{tabular}
+
+	\newpage
+
+	\subsubsection{Assignment operators}
+	It is used to assign the result of expression to a variable.
+	\\ \\
+	C has set of short hand assignment operator i.e \\
+	\tab \tab v op=exp;
+	\\ \\
+	where, \\
+	\tab \tab v $\longrightarrow$ variable \\
+	\tab \tab op $\longrightarrow$ arithmetic operator \\
+	\tab \tab exp $\longrightarrow$ expression
+	\\ \\
+	v=v op(exp);
+	\\ \\
+	\textbf{Example} \\
+	a+=1; // same as a=a+1 \\
+	\\ \\
+	\textbf{Simple vs Shorthand assignment} \\ \\
+	\begin{tabular}{|c|c|}
+		\hline
+		Simple assignment operator statement & Shorthand assignment statement \\
+		\hline
+		a=a+1; & a +=1; \\
+		a=a-1; & a-=1; \\
+		a=a*(n+1); & a*=n+1; \\
+		a=a/(n+1); & a/=n+1; \\
+		a=a\%b; & a\%=b; \\
+		\hline		
+	\end{tabular}
+	\\ \\
+	\textbf{Use of Shorthand assignment operator} \\
+	$\bullet$ What apears on the left hand side need not to apear \\
+	$\bullet$ The statement more concise ans easier to read \\
+	$\bullet$ The statement is much easier
+	\\ \\
+	\textbf{Difference between = \& ==}
+	\\ \\
+	\begin{tabular}{|c|c|}
+		\hline
+		= & == \\
+		\hline
+		It is a Assignment operator $\quad \quad \quad \quad ~$ & It is a Relational operator $\quad \quad \quad \quad \quad \quad \quad \quad \quad ~ ~$\\
+		Used to assign the values to a variable & Used to compare the variable (expression) values \\
+		Example $\quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad ~~ $ & Example $$\quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad ~~~ $$ \\
+		a=a++; , a=x-1; $ \quad \quad \quad \quad \quad \quad \quad \quad \quad $ & a==pow(x,y); , a==(x+y); $ \quad \quad \quad \quad \quad \quad \quad \quad \quad $ \\
+		\hline
+	\end{tabular}
+	
+	
+\end{document} 

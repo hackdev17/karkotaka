@@ -1,0 +1,443 @@
+\documentclass{article}
+\usepackage[a4paper, margin=0.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabto}
+\usepackage[usenames]{color}
+\date{}
+\author{hacker}
+\begin{document}
+	\title{Matrix Algebra}
+	\maketitle
+	
+	\newpage
+	
+	\section{Matrix}
+	\subsection{Definition}
+	A matrix is a rectangular array of numbers arranged in rows and columns enclosed a pair of brackets and subject to certain rules of presentation.
+	
+	\subsection{Representation}
+	The numbers can be substituted by symbols with apropriate suffixes indicating the row and column numbers.
+	\\ \\
+	A pair of paranthesis  $ (~) $ or square bracket $ [~] $ or pair of double bars $ ||~|| $ are used to repersent matrix.
+	
+	\subsubsection{Example}
+	$ \begin{array}{ccc}
+		\left( \begin{array}{ccc}
+			1 & 2 & 3 \\ 4 & 5 & 6
+		\end{array} \right)
+		&
+		\left[ \begin{array}{ccc}
+			4 & 5 & 6 \\ 7 & 8 & 9
+		\end{array} \right]
+		&
+		\left|\left| \begin{array}{ccc}
+			2 & 3 & 6 \\ 9 & 2 & 1
+		\end{array} \right|\right|
+	\end{array} $
+	
+	\section{Symbolic Representation of Matrix}
+	A matrix is usually denoted by capital letters and it's corresponding small letters followed by the two suffixes. The first  one indicating the row and second one the column in which element apears. 
+	\\ \\
+	A matrix of order '$ m \times n  $' having '\textit{m}' rows and '\textit{n}' columns can be written as
+	\\ \\
+	$ A_{mn} = {
+		\left[ \begin{array}{cccc}
+			a_{11} & a_{12} & \dots & a_{1n} \\
+			a_{21} & a_{22} & \dots & a_{2n} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			a_{m1} & a_{m2} & \dots & a_{mn} \\
+		\end{array} \right] }_{m \times n} $
+	
+	\section{Types of Matrix}
+	\subsection{Square Matrix}
+	A matrix in which the numbers of rows is equal to the number of columns is called a Square Matrix.
+	\\ \\
+	Thus, '$ m \times n $' matrix  will be a square matrix if $ m=n $ and it will be reffered as square matrix of order '\textit{n}'.
+	\\ \\
+	$ A =  { 
+		\left[ \begin{array}{ccc}
+			a_{11} & a_{12} & a_{13} \\ 
+			a_{21} & a_{22} & a_{23} \\
+			a_{31} & a_{32} & a_{33}
+		\end{array} \right] }_{3 \times 3} $
+	\\ \\
+	In a square matrix all those elements $ a_{ij} $ for which occur in the same row and same column namely $ a_{11}, ~ a_{22}, ~ a_{33}, ~ \dots, ~ a_{nn} $ are called the the diagonal elements.
+	\\ \\
+	The diagonal extends from upper left corner to the lower right corner that is known as the principle diagonal.
+	
+	\subsubsection{Example}
+	$ A = \left[ \begin{array}{ccc}
+		1 & 2 & -3 \\
+		6 & 8 & 5 \\
+		2 & -1 & 6
+	\end{array}\right] $
+	\\ \\
+	Principle diagonal elements are : 1, 8, 6
+	
+	\subsection{Row and Column Matrix}
+	A row matrix is defined as matrix having single row \& a column matrix is one having single column values.
+	\\ \\
+	$ \begin{array}{cc}
+		{
+			\left[ \begin{array}{cccc}
+				a_{11} & a_{12} & \dots & a_{1n}
+			\end{array}\right] 
+		}_{1 \times n}
+		& \text{row matrix}
+		\\ \\
+		{
+			\left[ \begin{array}{c}
+				a_{11} \\ a_{21} \\ \vdots \\ a_{m1}
+			\end{array}\right]
+		}_{m \times 1}
+		& \text{column matrix}
+	\end{array} $
+	
+	\subsection{Diagonal Matrix}
+	A sequence of matrix all of the whose elements except those in the leading diagonal are zero.
+	\\ \\
+	$ A = {
+		\left[ \begin{array}{ccc}
+			a_{11} & 0 & 0 \\
+			0 & a_{22} & 0 \\
+			0 & 0 & a_{33}
+		\end{array}\right]
+	}_{3 \times 3} 
+	\\ \\
+	A = \text{diag}( a_{11}, a_{22}, a_{33})$
+	
+	\subsubsection{Examle}
+	$ B = {
+		\left[ \begin{array}{ccc}
+			1 & 0 & 0 \\
+			0 & 2 & 0 \\
+			0 & 0 & 5
+		\end{array}\right]
+	}_{3 \times 3} 
+	\\ \\
+	B = \text{diag}(1, 2, 5)$
+	
+	\subsection{Scalar Matrix}
+	A matrix whose all the diagonal elements are equal is called as Scalar Matrix.
+	
+	\subsubsection{Example}
+	$ \begin{array}{cc}
+		A = {
+			\left[ \begin{array}{ccc}
+				2 & 0 & 0 \\
+				0 & 2 & 0 \\
+				0 & 0 & 2
+			\end{array}\right]
+		}_{3 \times 3}
+		&
+		B = {
+			\left[ \begin{array}{ccc}
+				9 & 0 & 0 \\
+				0 & 9 & 0 \\
+				0 & 0 & 9
+			\end{array}\right]
+		}_{3 \times 3}
+	\end{array} $
+	
+	\subsection{Unit Matrix}
+	A scalar Matrix each of whose diagonal elements are unity (or one) is called Unit Matrix (Identity Matrix) and it is denoted by $ I_{n} $
+	
+	\subsubsection{Example}
+	$ \begin{array}{cc}
+		I_3 = {
+			\left[ \begin{array}{ccc}
+				1 & 0 & 0 \\
+				0 & 1 & 0 \\
+				0 & 0 & 1
+			\end{array}\right]
+		}_{3 \times 3}
+		&
+		I_2 = {
+			\left[ \begin{array}{cc}
+				1 & 0 \\
+				0 & 1 
+			\end{array}\right]
+		}_{2 \times 2}
+	\end{array} $
+	
+	\subsection{Null Matrix}
+	A matrix which is rectangular or square each of whose elements are zeros is called Null Matrix (Zero Matrix) and it is denoted by O.
+	
+	\subsubsection{Example}
+	$ \begin{array}{cc}
+		O = {
+			\left[ \begin{array}{ccc}
+				0 & 0 & 0 \\
+				0 & 0 & 0
+			\end{array}\right]
+		}_{2 \times 3}
+		&
+		O = {
+			\left[ \begin{array}{cc}
+				0 & 0 \\ 0& 0
+			\end{array}\right]
+		}_{2 \times 2}
+	\end{array} $
+	\\ \\
+	$ [ \text{Note} ] $ : A square matrix when given in the form of scalar multiplication to an identity matrix is called scalar matrix.
+	\\ \\
+	i.e $ 3I_3 = \left[ \begin{array}{ccc}
+		3 & 0 & 0 \\
+		0 & 3 & 0 \\
+		0 & 0 & 3
+	\end{array}\right] = 3 \left[\begin{array}{ccc}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1
+	\end{array}\right] $
+	
+	\subsection{Triangular Matrix}
+	A square matrix $ A = (a_{ij})_{n \times n} $ is called Upper triangular matrix if $ a_{ij} = 0, ~~ \forall ~~ i > j $ and is called Lower triangular matric if $ a_{ij} = 0, ~~ \forall ~~ i < j$
+	
+	\subsection{Symbolic repersentation of Upper and Lower Triangular Matrix}
+	$ \begin{array}{cc}
+		{
+			\left[ \begin{array}{ccc}
+				a_{11} & a_{12} & a_{13} \\
+				a_{21} & a_{22} & 0 \\
+				a_{31} & 0 & 0
+			\end{array}\right]
+		}_{3 \times 3} & \text{Upper Triangular Matrix}
+		\\ \\
+		{
+			\left[ \begin{array}{ccc}
+				a_{11} & 0 & 0 \\
+				a_{21} & a_{22} & 0 \\
+				a_{31} & a_{32} & a_{33} 
+			\end{array}\right]
+		}_{3 \times 3} & \text{Lower Triangular Matrix}
+	\end{array}
+	$
+	\subsection{Sub Matrix}
+	A matrix obtained by deleting some rows or columns or both of a given matrix is called Sub Matrix of a given matrix.
+	
+	\subsubsection{Example}
+	Let $ A = { \left[ \begin{array}{cccc}
+		a_{11} & a_{12} & a_{13} & a_{14} \\
+		a_{21} & a_{22} & a_{23} & a_{24} \\
+		a_{31} & a_{32} & a_{33} & a_{34} \\
+		a_{41} & a_{42} & a_{43} & a_{44}
+	\end{array}\right] }_{4 \times 4} $ \\
+	
+	If we delete first row and column we obtain a submatrix i.e.
+	$ { \left[ \begin{array}{ccc}
+		a_{22} & a_{23} & a_{24} \\
+		a_{32} & a_{33} & a_{34} \\
+		a_{42} & a_{43} & a_{44}
+	\end{array}\right] }_{3 \times 3}$
+
+	\subsection{Symmetric Matrix}
+	A Symmetric Matrix is a special kind of square matrix $ A = [a_{ij}] $ for which $ a_{ij} = a_{ji} ~,~ \forall ~ i ~ \& ~ j $
+	
+	\subsection{Skew Symmetric Matrix}
+	A square matrix A is called a Skew Symmetric Matrix if $ a_{ij} = -a_{ji} ~,~ \forall ~ i ~ \& ~ j $
+	
+	\subsubsection{Example}
+	$ A = { \left[ \begin{array}{ccc}
+		0 & 6 & 2 \\
+		-6 & 0 & -1 \\
+		2 & 1 & 0
+	\end{array}\right] }_{3 \times 3} $
+	
+	\section{Matrix Operations}
+	\subsection{Scalar Multiplication}
+	A real number is reffered as scalar. when it occurs in operations involving matrices. \\
+	A scalar multiple , $ kA $ of a matrix $ A $ by scalar '$ k $' is a matrix obtained by multiplying every element of $ A $ by the scalar $ k $, \\ \\
+	$ A = { \left[ \begin{array}{cccc}
+		a_{11} & a_{12} & \dots & a_{1n} \\
+		a_{21} & a_{22} & \dots & a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{m1} & a_{m2} & \dots & a_{mn}
+	\end{array}\right] }_{m \times n} $
+	~~ \& ~~
+	$ kA = { \left[ \begin{array}{cccc}
+			ka_{11} & ka_{12} & \dots & ka_{1n} \\
+			ka_{21} & ka_{22} & \dots & ka_{2n} \\
+			\vdots  & \vdots & 	\ddots & \vdots \\
+			ka_{m1} & ka_{m2} & \dots & ka_{mn}
+		\end{array}\right]}_{m \times n} $
+	
+	\subsubsection{Example}
+	If $ A = \left[ \begin{array}{cc}
+		1 & 2 \\
+		3 & 4
+	\end{array} \right] $
+	then $ 3A $ is \\ \\
+	$ 3A = \left[ \begin{array}{cc}
+		3 & 6 \\
+		9 & 12
+	\end{array}\right] $
+	
+	\newpage
+
+	If $ B = \left[ \begin{array}{ccc}
+		3  & -5 & 4 \\
+		2  & 1  & 3 \\
+		-1 & -2 & 4
+	\end{array}\right]$
+	then find $ 2B $ \& $ -2B $ \\ \\ \\
+	$ 2B = \left[ \begin{array}{ccc}
+		6 & -10 & 8 \\
+		4 & 2 & 6 \\
+		-2 & -4 & 8
+	\end{array}\right] $ \\ \\ $ -2B = \left[ \begin{array}{ccc}
+		-6 & 10 & -8 \\
+		-4 & -2 & -6 \\
+		2 & 4 & -8
+	\end{array}\right] $
+
+	\subsection{Addition and Subtraction}
+	Matrices can be added or subtracted if and only if they are of the same order. \\
+	The sum or difference of two $ m \times n $ matrix are the sum or differences of the corresponding element in the component matrices.
+	
+	\subsubsection{Representation}
+	$ A = {[a_{ij}]}_{m \times n} $ and $ B = {[b_{ij}]}_{m \times n} $ be teo matrices then their sum or difference is the matrix $ C = {[ c_{ij}]}_{m \times n} $ \\
+	whrer $ c_{ij} = a_{ij} \pm b_{ij} ~~\forall ~~ i = 0, 1, 2 ..., m ~~ \& ~~ j = 0, 1, 2 ..., n$
+	
+	\subsubsection{Symbolic representation}
+	Let $ A = { \left[ \begin{array}{cccc}
+		a_{11} & a_{12} & \dots & a_{1n} \\
+		a_{21} & a_{22} & \dots & a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{m1} & a_{m2} & \dots & a_{mn} \\
+	\end{array}\right] }_{m \times n}
+	~~~ \& ~~~
+	B = { \left[ \begin{array}{cccc}
+		b_{11} & b_{12} & \dots & b_{1n} \\
+		b_{21} & b_{22} & \dots & b_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		b_{m1} & b_{m2} & \dots & b_{mn} \\
+	\end{array}\right] }_{m \times n} \\ \\ \\
+	\Longrightarrow A \pm B = { \left[ \begin{array}{cccc}
+			{a \pm b}_{11} & {a \pm b}_{12} & \dots & {a \pm b}_{1n} \\
+			{a \pm b}_{21} & {a \pm b}_{22} & \dots & {a \pm b}_{2n} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			{a \pm b}_{m1} & {a \pm b}_{m2} & \dots & {a \pm b}_{mn} \\
+		\end{array}\right] }_{m \times n}$
+	
+	\subsubsection{Properties of Addition}
+	\subsubsection*{Commutative Property}
+	If $ A~\&~B $ are any two matrices order '$ m \times n $' each then. $ A+B = B+A $
+	
+	\subsubsection*{Associative Property}
+	If $ A,~B~\& , C $ are any three matrices order '$ m \times n $' then, $ (A+B)+C = A+(B+C) $
+	
+	\subsubsection*{Distributive w.r.t scalar \textit{k}}
+	i.e. $ k(A+B) = kA + kB $
+	
+	\subsubsection*{Existance of Additive Identity}
+	i.e. $ A+O = O+A = A $, where $ O $ is a null matrix.
+	
+	\subsubsection*{Inverse}
+	If $ A $ be any given matrix then $ -A $ must exist and is the additive inverse of $ A $. \\
+	i.e. $ A + -A = O $ \hspace{0.2cm} \& \hspace{0.2cm} $ -A + A = O $
+	\newpage
+		
+	\subsection{Problems}
+	If $ A = \left( \begin{array}{ccc}
+			0 & 2 & 3 \\
+			2 & 1 & 4
+		\end{array}\right) ~~\& ~~ B = \left( \begin{array}{ccc}
+		7 & 6 & 3 \\
+		1 & 4 & 5
+	\end{array}\right) $ then find the value $ 2A+3B $  \\ \\
+	$ 2A = \left( \begin{array}{ccc}
+		0 & 4 & 6 \\
+		4 & 2 & 8
+	\end{array}\right) ~~~\& ~~~ 3B = \left( \begin{array}{ccc}
+		21 & 18 & 9 \\
+		3 & 12 & 15
+	\end{array}\right) \\
+	2A+3B = \underline{\underline{\left( \begin{array}{ccc}
+		21 & 22 & 15 \\
+		7 & 14 & 23
+	\end{array}\right)}}$
+	\\ \\ \\
+	If $ A= \left [ \begin{array}{cc} 
+		2 & 3 \\ 4 & 5
+	\end{array} \right ] $ \& $ B= \left[ \begin{array}{cc}
+		3 & -5 \\ 4 & -10
+	\end{array}\right]$ then find $ (A+B) $   \&   $ (A-B) $
+	\\ \\
+	$ \begin{array}{ccc}
+			A+B= \left[ \begin{array}{cc}
+			5 & -2 \\ 8 & -5
+		\end{array}\right] & \& &
+		A-B=\left[ \begin{array}{cc}
+			-1 & 8 \\ 0 & 15
+		\end{array}\right] 
+	\end{array}$
+	
+	\subsection{Multiplication of Matrices}
+	$ \bullet $ Two matrices are confirmable for multiplication if the number of columns of matrix is equal to the number of rows of \\ \tabto{0.35cm} the second matrix. \\
+	$ \bullet $ If the matrix is of type $ m \times n $ then the matrix must be a type of $ n \times p $ \\ 
+	\tabto{0.5cm} where, \textit{n} is number of rows and \textit{p} is number of columns. \\
+	$ \bullet $ The product $ A \times B $ is another matrix $ C=A \times B $ and has the order of $ m \times p $ \\
+	$ \bullet $ If $ A={\left[ a_{ij}\right]}_{m \times n} $   \&  $ B={\left[ b_{ik}\right]}_{n \times p} $ be two matrices then the product $ AB $ is $ C={\left[ c_{ik}\right]}_{n \times p} $ \\ \tabto{0.35cm} $C_{ip}$ is obtained by multiplying the corresponding entries of the $ i^{\text{th}} $ row of $ A $ and those of $ k^{\text{th}} $ column of $ B $
+	
+	$$\begin{array}{ccc}
+		AB = { \left[ \begin{array}{cccc}
+				a_{11} & a_{12} & \dots & a_{1n} \\
+				a_{21} & a_{22} & \dots & a_{2n} \\
+				\vdots & \vdots & \ddots & \vdots \\
+				a_{m1} & a_{m2} & \dots & a_{mn} \\
+			\end{array}\right] }_{m \times n}
+						&
+					\times
+						&
+		{ \left[ \begin{array}{cccc}
+				b_{11} & b_{12} & \dots & b_{1p} \\
+				b_{21} & b_{22} & \dots & b_{2p} \\
+				\vdots & \vdots & \ddots & \vdots \\
+				b_{n1} & b_{n2} & \dots & b_{np} \\
+			\end{array}\right] }_{n \times p}
+						\\ \\
+		C = { \left[ \begin{array}{cccc}
+				c_{11} & c_{12} & \dots & c_{1p} \\
+				c_{21} & c_{22} & \dots & c_{2p} \\
+				\vdots & \vdots & \ddots & \vdots \\
+				c_{m1} & c_{m2} & \dots & c_{mp} \\
+			\end{array}\right] }_{m \times p} 
+	\end{array}$$
+	$$ \Longrightarrow c_{ij} = \sum_{i,j=1}^{m,p} a_{ij} \times b_{ji} $$
+
+	\subsubsection{Properties of Addition}
+	\subsubsection*{Distributive property}
+	Multiplication is distributive w.r.t to addition \\ \\
+	If A, B, C are $ m \times n $, $ n \times p $ \& $ m \times p $ matrices respectively, then \\
+	\tab \tab $ A(B+C) = AB + AC $
+	
+	\subsubsection*{Associative property}
+	Multiplication is associative. \\
+	If A, B, C are $ m \times n $, $ n \times p $ \& $ m \times p $ matrices respectively, then \\
+	\tab \tab $ A(BC) = (AB)C $
+	
+	\subsubsection*{Existance of multiplicative identity}
+	Multiplication of matrix by a unit matrix. If a is a matrix of order $ m \times n $ and I is a matrix of same order then, \\
+	\tab \tab $ A \times I = I \times A = A $
+	
+	\newpage
+	
+	\subsection{Problems}
+	Find AB \\
+	Where, $ A = [\begin{array}{cccc}
+		1 & 2 & 3 & 4
+	\end{array}]_{1 \times 4}$ \& $ B=\left[ \begin{array}{c}
+		1 \\ 2 \\ 3 \\ 4
+	\end{array}\right]_{4 \times 1}$ \\
+	let AB=C \\
+	$\Longrightarrow C_{1 \times 1} = A_{1 \times 4} \times B_{4 \times 1}$ \\
+	$ \Longrightarrow C =  \left[ \begin{array}{cccc}
+		1^2 + 2^2 + 3^2 + 4^2
+	\end{array}\right]_{1 \times 1}$ \\
+	$$ \Longrightarrow 1^2 + 2^2 + 3^2 + 4^2 = \frac{4(4+1)(2.4+1)}{6} = \frac{4.5(9)}{6} = \underline{\underline{30}} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad $$ \\
+	$ \Longrightarrow C = \underline{\underline{[~30~]_{1 \times 1}}} $
+	
+	
+\end{document}

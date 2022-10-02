@@ -1,0 +1,106 @@
+\documentclass{article}
+\author{hacker}
+\usepackage[a4paper, margin=0.5in]{geometry}
+\begin{document}
+	\title{DIGITAL LOGIC AND COMPUTER DESIGN}
+	\maketitle
+	
+	$[$ \textbf{Note} $]$ : Originally written by M.Morris Morvo and modified by author
+	
+	\newpage
+	
+	\section{Number System}
+	\subsection{Definition}
+	A number system is writing system used to represent a number. \\
+	$[$\textbf{Note}$]$ : A number is used to represent counts, quantities and to perform mathematical operations.
+	\\ \\
+	\textbf{There are four types of number systems :} \\
+	$ \bullet $ Decimal number system \\
+	$ \bullet $ Binary number system \\
+	$ \bullet $ Octal number system \\
+	$ \bullet $ Hexadecimal number system
+	
+	\subsection{Decimal number system}
+	It is considered as base 10 number system. It supports 10 digits starting from 0 to 9 i.e A decimal number is formed by a sequence of these 10 digits.
+	\\ \\
+	\textbf{A decimal number system is based on 3 things :} \\
+	$ \bullet $ The digit \\
+	$ \bullet $ The position of digit in the number. \\
+	$ \bullet $ The number base.
+	
+	\subsubsection{Example}
+	1415.54 \\ \\
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline
+			\textbf{Weight}	& $ {10}^{3^{^{^{}}}} $ & $ 10^2 $ & $ 10^1 $ & $ 10^0 $ & & $ {10}^{-1} $ & $ {10}^{-2} $ \\ \hline
+			\textbf{Position} & 3 & 2 & 1 & 0 & & $ -1 $ & $ -2 $
+			\\ \hline
+			\textbf{Number} & 1 & 4 & 1 & 5 & . & 5 & 4 
+			\\ \hline
+		\end{tabular}
+	\\ \\ \\
+	i.e. $ 1 \times 10^3 + 4 \times 10^2 + 1 \times 10^1 + 5 \times 10^0 + 5 \times 10^{-1} + 4 \times 10^{-2} = \underline{\underline{1415.54}}$ 
+	
+	\subsection{Binary Number System}
+	It is considered as base 2 number system. It supports only two digits 0's and 1's.
+	
+	\subsubsection{Example}
+	$ 1001.11_{(2)} $
+	
+	\subsection{Octal Number System}
+	It is considered as base 8 number system. It supports only eight digits starting from 1 to 7.
+	
+	\subsubsection{Example}
+	$ 143.56_{(8)} $
+	
+	\subsection{Hexadecimal Number System}
+	It is considerd as base 16 number system. It supports 16 digits starting from 0-9 and A-F.
+	\\
+	where A=10, B=11 $ \dots $ F=15
+	\subsubsection{Example}
+	BCA$ .12_{(16)} $
+	
+	\newpage
+	
+	\section{Number System Conversion}
+	\subsection{Converting Decimal to Binary}
+	\subsubsection{Converting decimal integer to binary}
+	\textbf{The procedure :} \\
+	\textbf{Step 1:} Divide a given decimal integer by 2 and mark the remainder value.\\
+	\textbf{Step 2:} Repeat Step 1 untill the quotient becomes zero.\\
+	\textbf{Step 3:} Read the number from bottom to top i.e the equivalent binary value for the given decimal integer.
+	\\ \\
+	\textbf{Example} \\
+	$ 145_{(10)} $ to $ ()_{(2)} $
+	\\ \\
+	$2|\underline{145 ~~~~} \\
+	 2|\underline{72 - 1} \\
+	 2|\underline{36 - 0} \\
+	 2|\underline{18 - 0} \\
+	 2|\underline{9 - 0} \\
+	 2|\underline{4 - 1} \\
+	 2|\underline{2 - 0} \\
+	 2|\underline{1 - 0} \\
+	 {~}|\underline{0 - 1} $
+	 \\ \\
+	 $ \Longrightarrow \underline{\underline{10010001_{(2)}}} $ 
+	 \\ \\
+	 $ 543_{(10)} $ to $ ()_{(2)} $
+	 \\ \\
+	 $2|\underline{543} \\
+	 2|\underline{271 - 1} \\
+	 2|\underline{135 - 1} \\
+	 2|\underline{67 - 1} \\
+	 2|\underline{33 - 1} \\
+	 2|\underline{16 - 1} \\
+	 2|\underline{8 - 0} \\
+	 2|\underline{4 - 0} \\
+	 2|\underline{2 - 0} \\
+	 2|\underline{1 - 0} \\
+	 {~}|\underline{0 - 1} 
+	 $
+	 \\ \\
+	 $ \Longrightarrow \underline{\underline{1000011111_{(2)}}} $
+	 \\ \\
+	 $ 543_{(10)} $ to $ ()_{(2)} $
+\end{document}

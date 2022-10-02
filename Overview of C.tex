@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage[a4paper, margin=0.5in]{geometry}
+\usepackage{fontspec}
+\newfontfamily{\code}{Source Code Pro}
+\usepackage{tabto}
+\usepackage{amsmath}
+\date{}
+\author{hacker}
+
+\begin{document}
+	\title{Overview of C}
+	\maketitle
+
+	\newpage
+	
+	\section{History of C}
+	\begin{center}
+		(1960) ALGOL [International Group] \\
+		$ \downarrow $ \\
+		(1967) BCPL [Martin Richards] \\ 
+		$ \downarrow $ \\
+		(1970) B [Ken Thompson] \\ 
+		$ \downarrow $ \\
+		(1972) Traditonal C [Denis Ritchie]\\ 
+		$ \downarrow $ \\
+		(1978) K \& RC [Kernighan \& Ritchie] \\ 
+		$ \downarrow $ \\
+		(1989) ANSI C [ANSI commitee] \\ 
+		$ \downarrow $ \\
+		(1990) ANSI/ISO C [ISO commitee] \\
+		$ \downarrow $ \\
+		(1999) C99 [Standardization commitee]
+	\end{center}
+
+	\subsection{Full form}
+	\textbf{BPCL} \\
+	Basic Combined Peogramming Languege. \\
+	\\
+	\textbf{ANSI} \\
+	American National Standard Institute \\
+	\\
+	\textbf{ISO} \\
+	International Standard Organization
+	
+	\section{Importance of C}
+	$ \bullet $ It is rhobust languege which has builtin functions and operators. \\
+	$ \bullet $ It is a high level languege \\
+	$ \bullet $ Program written in C are efficient and fast \\
+	$ \bullet $  There are only 32 keywords in C and its strength lies in the built in functions (Library functions) \\
+	$ \bullet $ C is a portable languege \\
+	$ \bullet $ C is a supports structured programming \\
+	$ \bullet $ C has ability to extended itself \\
+
+	\section{Basic structure of C}
+	$ \bullet $ Documentation section \\
+	$ \bullet $ Link section \\
+	$ \bullet $ Definition section \\
+	$ \bullet $ Global declaration section \\
+	$ \bullet $ main() function section \\
+	{
+		\tabto{0.5cm} \code main() \{ \\ 
+			\tabto{1cm} declaration\_part \\ 
+			\tabto{1cm} execution\_part \\ 
+		\tabto{0.5cm} \} 
+	} \\
+	$ \bullet $ Subprogram section
+	{
+		\tabto{1cm} \code Function1 \\
+		\tabto{1cm}Fuction2 \\
+		\tabto{1.5cm} $ \vdots $ \\
+		\tabto{1cm} Fuction\textit{n} \\
+	}
+
+	\newpage
+
+	\subsection{Documentation section}
+	It consist of a set of comment lines. Which will have the name of the program the author and other details.
+	
+	\subsection{Link section}
+	It provides instructions to the compiler to line functions from the system library.
+	
+	\subsection{Definition section}
+	It defines symbolic constants.
+	
+	\subsection{Global declaration section}
+	There are some variables are called GDS and are declared in the Global declaration, i.e. GDS
+	
+	\subsection{main() section}
+	Every C program must have one {\code main()} function section. This containes two parts,
+	declaration part \& executable part. The declaration part containes all the variables. There is atleast one statement in executable part. All statements in declaration \& execution part end with semicolon (;)
+	
+	\subsection{Subprogram section}
+	It containes all the user-defined functions that are called in the {\code main()} funcions.
+	
+	\subsubsection{Example}
+	{
+		\code \tabto{0.5cm} \#include<stdio.h>
+		\tabto{0.5cm} main () \{
+			\tabto{1cm} printf("Hello, Welcome to C !");
+		\tabto{0.5cm} \}
+	}
+
+	{
+		\tabto{0.5cm} \code \#include<stdio.h>
+		\tabto{0.5cm} main () \{
+			\tabto{1cm} int a,b,add;
+			\tabto{1cm} printf("\textbackslash nEnter two numbers :\textbackslash n> ");
+			\tabto{1cm} scanf("\%d\%d", \&a, \&b);
+			\tabto{1cm} add=a+b;
+			\tabto{1cm} printf("\textbackslash n The sum of two numbers is : \%d", add);
+		\tabto{0.5cm} \}
+	}
+
+	\subsection{Executing a C program}
+	$ \bullet $ Creating a program \\
+	$ \bullet $ Compiling a program \\
+	$ \bullet $ Linking a program with the function \\
+	$ \bullet $ Executing a program
+\end{document}
